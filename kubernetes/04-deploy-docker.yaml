@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - name: jenkins
+          image: jenkins-with-pod-access
+          ports:
+            - containerPort: 8080
+          securityContext:
+            privileged: true  # Permite permisos elevados
+          volumeMounts:
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+            - name: docker-socket
+              mountPath: /var/run/docker.sock  # Monta el socket de Docker
+            - name: kube-config
+              mountPath: "/root/.kube"
+      volumes:
+        - name: jenkins-home
+          persistentVolumeClaim:
+            claimName: jenkins-home-pvc
+        - name: docker-socket
+          hostPath:
+            path: /var/run/docker.sock  # Ruta del socket Docker en el host
+            type: Socket
+        - name: kube-config
+          hostPath:
+             path: /home/ubuntu/.kube
