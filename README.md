@@ -30,11 +30,11 @@ Dentro el pod de jenkins que armamos en el caso 3 necesitaria poder acceder a do
 
 Para poder hacer el push tuve que primero cargar las credenciales en jenkins ya que es un repositorio privado.
 
-img(git credentials)
+![git credentials](img/01-git-credentials.PNG)
 
 Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de jenkins (utiliza el comando git del plugin que jenkins instala por defecto) :
 
-img(code pipeline generator)
+![code pipeline generator](img/02-code-pipeline-generator.PNG)
 
 
 ### Docker
@@ -43,13 +43,14 @@ img(code pipeline generator)
 
 * Modifique el deployment de jenkins para que monte el socket del daemon del host.
 
-img (docker socket)
+![montajes](img/montajes.PNG)
 
 * Para dockerhub configure las credenciales y despues vi varios metodos para hacer el login en base a la [documentacion oficial de jenkins.](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials)  
 
 * A pesar de ser exitoso el login y haber seguido la doc oficial no pude sacar este warning : 
 
-img (docker warning)
+![docker warning](img/docker-warning-not-resolve.PNG)
+
 
 ### Kubectl
 
