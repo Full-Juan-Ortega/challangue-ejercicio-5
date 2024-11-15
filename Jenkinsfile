@@ -6,6 +6,7 @@ pipeline {
         IMAGE_NAME = "ej-05-node"
         IMAGE_TAG = "v1"
         ID_GIT_CREDENTIALS = "659a92cb-73ca-4e99-b11d-9a616e512bd1"
+        
     }
 
     stages {
@@ -29,26 +30,25 @@ pipeline {
         }
     
         stage('Login to Docker Hub') {
+            environment {
+                DOCKER_HUB = credentials('DOCKER-HUB-CREDENTIALS')
+            }
             steps {
                 script {
-                    echo "docker login step start"
-                    withCredentials([
-                        usernamePassword(
-                            credentialsId: 'DOCKER-HUB-CREDENTIALS', 
-                            passwordVariable: 'dockerHubPassword', 
-                            usernameVariable: 'dockerHubUser')]) {
-                                // Ejecuta el login sin `env.`
-                                sh "docker login -u $dockerHubUser -p $dockerHubPassword"
-                    }
+                    // Login de Docker usando password-stdin
+                    sh """
+                        echo $DOCKER_HUB_PSW | docker login -u $DOCKER_HUB_USR --password-stdin
+                    """
                 }
             }
         }
+    
+
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'ls'
-                    sh 'pwd'
+
                     sh "docker build -t ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} ."
                 }
             }
