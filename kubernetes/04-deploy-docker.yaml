@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: jenkins-with-pod-access
+          image: juanortegait/jenkins-with-pod-access:v1
           ports:
             - containerPort: 8080
           securityContext:
