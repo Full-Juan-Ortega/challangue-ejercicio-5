@@ -36,4 +36,4 @@ spec:
             type: Socket
         - name: kube-config
           hostPath:
-             path: /home/ubuntu/.kube
+             path: /home/juan/.kube
