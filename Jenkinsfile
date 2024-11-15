@@ -23,9 +23,7 @@ pipeline {
 
         stage('git clone') {
             steps {
-                withCredentials([usernamePassword(credentialsId: ID_GIT_CREDENTIALS, usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                    git(url: 'https://github.com/Gonveliz/node-app.git', credentialsId: ID_GIT_CREDENTIALS)
-                }
+                git credentialsId: ID_GIT_CREDENTIALS , url: 'https://github.com/Gonveliz/node-app.git'
             }
         }
     
@@ -43,13 +41,11 @@ pipeline {
             }
         }
     
-
-
         stage('Build Docker Image') {
             steps {
                 script {
 
-                    sh "docker build -t ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} ."
+                    sh "docker build -t $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG ."
                 }
             }
         }
@@ -58,7 +54,7 @@ pipeline {
             steps {
                 script {
                     // Push de la imagen a Docker Hub
-                    sh "docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker push $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG"
                 }
             }
         }
