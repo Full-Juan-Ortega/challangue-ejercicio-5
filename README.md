@@ -1,4 +1,4 @@
-# Caso 5 - Desarrollo de pipeline para el buildeo y despliegue de servicio en el Cluster
+## Caso 5 - Desarrollo de pipeline para el buildeo y despliegue de servicio en el Cluster
 Necesitamos un pipeline de Jenkins que buildee y suba a un registry la imagen de docker anteriormente abordada(Caso 1). Luego del buildeo, necesitamos que el servicio se despliegue en el minikube(Caso 3).  
 [Repo Imagen caso 1](https://github.com/Gonveliz/node-app/blob/master/Dockerfile)
 
@@ -18,8 +18,6 @@ cd challangue-ejercicio-5/kubernetes
 kubectl apply -f .
 kubectl port-forward svc/jenkins 30000:30000 --address 0.0.0.0 &
 ```
-
-
 
 
 ## Analisis y resumen :
@@ -79,6 +77,8 @@ Utilice la instalacion de la [documentacion oficial de kubectl.](https://kuberne
 
     Agregue el montaje del archivo de configuracion de acceso al cluster : 
 
+[kubectl](img/kubectl version.PNG
+
 Monte el directorio usuario/.kube necesario para la autenticacion de kubectl en el cluster.
 
     Otorgue nuevos permisos al pod para que pueda usar los verbos "create", "delete", "list" sobre el cluster.
@@ -87,9 +87,11 @@ Cree en el archivo jenkins-role.yaml donde esta el ROLE y el ROLE-BINDING para o
 Averigue en la documentacion oficial [Control de acceso basado en roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).  
 
 Profundizando un poco mas en [account service](https://kubernetes.io/docs/concepts/security/service-accounts/) entendi lo siguiente :  
-Al crear un pod sin especificar el account service se le asigna el "default" , el account service nos validara nuestra identidad y nos otorgara los permisos que especificamos detallamos ROLE.
+Al crear un pod sin especificar el account service se le asigna el "default" , el account service nos validara nuestra identidad y nos otorgara los permisos que especificamos detallamos ROLE.  
+
+Funcionando !!!
+[final](img/job-success.PNG)
 
 
-## Pruebas de funcionamiento : 
 
 
