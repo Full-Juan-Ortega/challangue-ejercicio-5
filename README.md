@@ -88,7 +88,7 @@ Averigue en la documentacion oficial [Control de acceso basado en roles](https:/
 Profundizando un poco mas en [account service](https://kubernetes.io/docs/concepts/security/service-accounts/) entendi lo siguiente :  
 Al crear un pod sin especificar el account service se le asigna el "default" , el account service nos validara nuestra identidad y nos otorgara los permisos que especificamos detallamos ROLE.  
 
-Funcionando !!!
+**Finalmente pod levantado exitosamente!**    
 ![final](img/job-success.PNG)
 
 
