@@ -57,3 +57,5 @@ Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de je
 
 ### Kubectl
 
+Control de acceso basado en roles
+<https://kubernetes.io/docs/reference/access-authn-authz/rbac/>

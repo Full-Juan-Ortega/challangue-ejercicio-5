@@ -61,6 +61,7 @@ pipeline {
         stage('levantar el pod'){
             steps {
                 script {
+                    sh "kubectl delete pod-desde-jenkins"
                     sh "kubectl run pod-desde-jenkins --image=juanortegait/ej-05-node:v1"
                 }
             }
