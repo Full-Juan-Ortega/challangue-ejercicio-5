@@ -73,7 +73,7 @@ Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de je
 
     Agregue la instalacion de kubectl a la imagen siguiendo[documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
-![kubectl](img/kubectl version.PNG)
+![kubectl](./img/kubectl-version.PNG)
 
     Agregue el montaje del archivo de configuracion de acceso al cluster : 
 
