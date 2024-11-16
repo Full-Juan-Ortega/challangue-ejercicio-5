@@ -71,22 +71,20 @@ Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de je
 
 ### Kubectl en el pod.
 
-1) Agregue la instalacion de kubectl a la imagen siguiendo[documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+1) Agregue la instalacion de kubectl a la imagen siguiendo [documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 ![kubectl](./img/kubectl-version.PNG)
 
 2) Agregue el montaje del archivo de configuracion de acceso al cluster : 
 
-
-Monte el directorio usuario/.kube necesario para la autenticacion de kubectl en el cluster.
+    - Monte el directorio usuario/.kube necesario para la autenticacion de kubectl en el cluster.
 
 3) Otorgue nuevos permisos al pod para que pueda usar los verbos "create", "delete", "list" sobre el cluster.
 
-Cree en el archivo jenkins-role.yaml donde esta el ROLE y el ROLE-BINDING para otorgar los permisos al account service "default".  
-Averigue en la documentacion oficial [Control de acceso basado en roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).  
+    - Cree en el archivo jenkins-role.yaml donde esta el ROLE y el ROLE-BINDING para otorgar los permisos al account service "default".  
+    - Averigue en la documentacion oficial [Control de acceso basado en roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
-Profundizando un poco mas en [account service](https://kubernetes.io/docs/concepts/security/service-accounts/) entendi lo siguiente :  
-Al crear un pod sin especificar el account service se le asigna el "default" , el account service nos validara nuestra identidad y nos otorgara los permisos que especificamos detallamos ROLE.  
+Profundizando un poco mas en [account service](https://kubernetes.io/docs/concepts/security/service-accounts/) pude entender que al crear un pod sin especificar el account service se le asigna el "default" , el account service nos validara nuestra identidad y nos otorgara los permisos que especificamos detallamos ROLE.  
 
 **Finalmente pod levantado exitosamente!**    
 ![final](img/job-success.PNG)
