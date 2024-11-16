@@ -51,7 +51,7 @@ Para poder hacer el push tuve que primero cargar las credenciales en jenkins ya 
 
 Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de jenkins (utiliza el comando git del plugin que jenkins instala por defecto) :
 
-![code pipeline generator](img/02-code-pipeline-generator.PNG)
+![code pipeline generator](img/02-pipeline-generator.PNG)
 
 
 ### Docker en el pod.
@@ -71,13 +71,12 @@ Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de je
 
 ### Kubectl en el pod.
 
-    Agregue la instalacion de kubectl a la imagen.  
+    Agregue la instalacion de kubectl a la imagen siguiendo[documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
-Utilice la instalacion de la [documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+![kubectl](img/kubectl version.PNG)
 
     Agregue el montaje del archivo de configuracion de acceso al cluster : 
 
-[kubectl](img/kubectl version.PNG
 
 Monte el directorio usuario/.kube necesario para la autenticacion de kubectl en el cluster.
 
@@ -90,7 +89,7 @@ Profundizando un poco mas en [account service](https://kubernetes.io/docs/concep
 Al crear un pod sin especificar el account service se le asigna el "default" , el account service nos validara nuestra identidad y nos otorgara los permisos que especificamos detallamos ROLE.  
 
 Funcionando !!!
-[final](img/job-success.PNG)
+![final](img/job-success.PNG)
 
 
 
