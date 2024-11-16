@@ -17,6 +17,14 @@ kubectl port-forward svc/jenkins 30000:30000 --address 0.0.0.0 &
 **Pruebas de funcionamiento :**
 
 
+[![Video](https://cdn.loom.com/sessions/thumbnails/c6d096241c734a60867ed775765e542a-with-play.gif)](https://www.loom.com/share/c6d096241c734a60867ed775765e542a?sid=076d773a-2f97-49ef-87dd-adb1b86a9139)
+
+# Demo del Proyecto
+
+Haz clic en la imagen para ver el video:
+
+[![Ver Video en Loom](https://cdn.loom.com/sessions/thumbnails/c6d096241c734a60867ed775765e542a-with-play.gif)](https://www.loom.com/share/c6d096241c734a60867ed775765e542a?sid=076d773a-2f97-49ef-87dd-adb1b86a9139)
+
 
 ## Analisis y resumen :
 
