@@ -30,9 +30,9 @@ Dentro del pod del jenkins que armamos en el caso 3 necesitaria poder acceder a 
 
 **Docker**
 
-* [Instalacion de docker en el pod de jenkins.](#docker-en-el-pod)
+* [Instale docker en el pod de jenkins.](#docker-en-el-pod)
 * Configure las credenciales de dockerhub para hacer push de la imagen.  
-* En el deployment modifique el yaml para poder accededer al socket del daemon de docker en el host. 
+* En el deployment modifique el yaml para poder acceder al socket del daemon de docker del host. 
 
 **Kubectl**
 
@@ -71,16 +71,16 @@ Tenia algunas dudas de sintaxis de groovy y use el code pipeline generator de je
 
 ### Kubectl en el pod.
 
-    Agregue la instalacion de kubectl a la imagen siguiendo[documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+1) Agregue la instalacion de kubectl a la imagen siguiendo[documentacion oficial de kubectl.](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 ![kubectl](./img/kubectl-version.PNG)
 
-    Agregue el montaje del archivo de configuracion de acceso al cluster : 
+2) Agregue el montaje del archivo de configuracion de acceso al cluster : 
 
 
 Monte el directorio usuario/.kube necesario para la autenticacion de kubectl en el cluster.
 
-    Otorgue nuevos permisos al pod para que pueda usar los verbos "create", "delete", "list" sobre el cluster.
+3) Otorgue nuevos permisos al pod para que pueda usar los verbos "create", "delete", "list" sobre el cluster.
 
 Cree en el archivo jenkins-role.yaml donde esta el ROLE y el ROLE-BINDING para otorgar los permisos al account service "default".  
 Averigue en la documentacion oficial [Control de acceso basado en roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).  
