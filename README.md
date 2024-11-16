@@ -2,6 +2,11 @@
 Necesitamos un pipeline de Jenkins que buildee y suba a un registry la imagen de docker anteriormente abordada(Caso 1). Luego del buildeo, necesitamos que el servicio se despliegue en el minikube(Caso 3).  
 [Repo Imagen caso 1](https://github.com/Gonveliz/node-app/blob/master/Dockerfile)
 
+## Video de la resolucion : 
+
+**Video :**
+[![Watch the video](https://cdn.loom.com/sessions/thumbnails/c6d096241c734a60867ed775765e542a-59e25a5451e9f26a-full-play.gif)](https://www.loom.com/share/c6d096241c734a60867ed775765e542a?sid=0f5c9dc4-8e5b-46e5-87ae-dff192e2d81b)
+
 ## Como desplegar
 
 Clonamos el repositorio, levantamos minikube y todos los archivos de k8 , luego hacemos un portforward para poder acceder a jenkins desde el navegador.  
@@ -14,16 +19,7 @@ kubectl apply -f .
 kubectl port-forward svc/jenkins 30000:30000 --address 0.0.0.0 &
 ```
 
-**Pruebas de funcionamiento :**
 
-
-[![Video](https://cdn.loom.com/sessions/thumbnails/c6d096241c734a60867ed775765e542a-with-play.gif)](https://www.loom.com/share/c6d096241c734a60867ed775765e542a?sid=076d773a-2f97-49ef-87dd-adb1b86a9139)
-
-# Demo del Proyecto
-
-Haz clic en la imagen para ver el video:
-
-[![Ver Video en Loom](https://cdn.loom.com/sessions/thumbnails/c6d096241c734a60867ed775765e542a-with-play.gif)](https://www.loom.com/share/c6d096241c734a60867ed775765e542a?sid=076d773a-2f97-49ef-87dd-adb1b86a9139)
 
 
 ## Analisis y resumen :
