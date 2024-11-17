@@ -4,7 +4,6 @@ Necesitamos un pipeline de Jenkins que buildee y suba a un registry la imagen de
 
 ## Video de la resolucion : 
 
-**Video :**
 [![Watch the video](https://cdn.loom.com/sessions/thumbnails/c6d096241c734a60867ed775765e542a-59e25a5451e9f26a-full-play.gif)](https://www.loom.com/share/c6d096241c734a60867ed775765e542a?sid=0f5c9dc4-8e5b-46e5-87ae-dff192e2d81b)
 
 ## Como desplegar
