@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // Esto indica que el pipeline se ejecutará en cualquier agente disponible
+    agent any 
 
     environment {
         DOCKER_REGISTRY = "juanortegait"
@@ -14,7 +14,7 @@ pipeline {
         stage('versiones') {
             steps {
                 script {
-                    // Ejecuta el comando para conectar Docker al Daemon de Minikube
+
                     sh 'docker --version'
                     sh 'kubectl version'
                 }
