@@ -58,14 +58,25 @@ pipeline {
                 }
             }
         }
-        stage('levantar el pod'){
-            steps {
-                script {
-                    sh "kubectl delete pod-desde-jenkins || true"
-                    sh "kubectl run pod-desde-jenkins --image=juanortegait/ej-05-node:v1"
-                }
-            }
+        stage('levantar el pod') {
+    steps {
+        script {
+            // Eliminar el pod, y esperar su eliminación
+            sh "kubectl delete pod pod-desde-jenkins || true"
             
+            // al hacer el delete previo al run , el run se estaba haciendo antes de que termine el delete de eliminar el pod.
+            sh '''
+            while kubectl get pod pod-desde-jenkins; do
+                echo "Esperando que el pod se elimine..."
+                sleep 2
+            done
+            '''
+            
+            // Crear el nuevo pod
+            sh "kubectl run pod-desde-jenkins --image=juanortegait/ej-05-node:v1"
         }
+    }
+}
+
     }
 }
